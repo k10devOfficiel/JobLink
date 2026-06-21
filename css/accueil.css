@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=SN+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+     font-family: "SN Pro", sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    padding: 15px 0;
+   background-color: #fff;
+   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+header .logo h2{
+    color: #0C0130;
+}
+header .listes ul{
+    display: flex;
+    gap: 20px;
+}
+
+header .listes ul li{
+    list-style: none;
+}
+
+header a{
+    text-decoration: none;
+     color:rgba(0, 0, 0, 0.767);
+}
+header .btn{
+    display: flex;
+    gap:  20px;
+}
+header .btn a {
+    border:  solid 1px #0C0130;
+    padding: 10px;
+
+    
+}
+
