@@ -148,7 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         exit;
     } else {
         $_SESSION['erreurs_inscription'] = ['global' => "Une erreur est survenue, veuillez réessayer"];
-        header("Location: inscription_ouvrier.php");
+        header("Location: inscriptionOuvrier.php");
         exit;
     }
 
