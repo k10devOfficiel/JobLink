@@ -37,7 +37,7 @@ $nomOuvrier = $_SESSION['nom'] ?? '';
    </header>
 
    <main>
-     <p>Bienvenue, <?php echo htmlspecialchars($nomOuvrier); ?> !</p>
+     <p>Bienvenue, Ouvrier <?php echo htmlspecialchars($nomOuvrier); ?> !</p>
    </main>
 </body>
 </html>

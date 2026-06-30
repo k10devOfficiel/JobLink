@@ -1,21 +1,15 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-// À RETIRER avant la mise en ligne définitive.
-// En production :
-// ini_set('display_errors', 0);   // n'affiche RIEN à l'écran
-// error_reporting(E_ALL);          // continue à TOUT détecter
-// ini_set('log_errors', 1);        // mais écrit tout dans un fichier log
-// ini_set('error_log', '/chemin/vers/erreurs.log');
 
-include("../connexion/cnx.php");
 session_start();
+include("../connexion/cnx.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     // --- Protection CSRF ---
     if (!isset($_POST['csrf_token']) || !isset($_SESSION['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-        header("Location: inscriptionOuvrier.php");
+        header("Location: ../auth/inscriptionOuvrier.php");
         exit;
     }
 
@@ -105,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             'description'       => htmlspecialchars($description),
             'zone_intervention' => $zonesIntervention, // tableau, pas besoin d'échapper ici (sera fait à l'affichage)
         ];
-        header("Location: inscriptionOuvrier.php");
+        header("Location: ../auth/inscriptionOuvrier.php");
         exit;
     }
 
@@ -115,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     if ($verifEmail->fetch()) {
         $_SESSION['erreurs_inscription'] = ['email' => "Cet email est déjà utilisé"];
-        header("Location: inscriptionOuvrier.php");
+        header("Location: ../auth/inscriptionOuvrier.php");
         exit;
     }
 
@@ -148,11 +142,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         exit;
     } else {
         $_SESSION['erreurs_inscription'] = ['global' => "Une erreur est survenue, veuillez réessayer"];
-        header("Location: inscriptionOuvrier.php");
+        header("Location: ../auth/inscriptionOuvrier.php");
         exit;
     }
 
 } else {
-    header("Location: inscriptionOuvrier.php");
+    header("Location: ../auth/inscriptionOuvrier.php");
     exit;
 }
